@@ -1,6 +1,21 @@
-# Grammar Scoring Engine for Spoken English (SHL Hiring Assessment 2026)
+# Do you understand the words that are coming out of my mouth?!
 
-Predicts a 0–5 grammar score for 45–60 s speech clips.
+![Detective Lee, moments before being asked the most important question in speech assessment](assets/do-you-understand.png)
+
+> **Carter:** *"Do you understand the words that are coming out of my mouth?"*
+> **This repo:** *"Yes. Also, your subject–verb agreement is a solid 4 out of 5."*
+
+A **grammar scoring engine for spoken English**, built for the SHL Hiring Assessment 2026. Feed it a 45–60 second audio clip and it returns a grammar score from 0 to 5, the same scale human raters use. No karate required.
+
+| | |
+|---|---|
+| **5-fold CV** | RMSE **0.464**, Pearson r **0.927** |
+| **Training RMSE** (in-sample) | **0.377** |
+| **Public leaderboard** | RMSE **0.390** |
+
+The full report (approach, ablation, plots, training RMSE) lives in [`solution.ipynb`](solution.ipynb). Carter would not read it. You should.
+
+---
 
 ## How it works (the "Lee explains the case" section)
 
@@ -61,3 +76,7 @@ Run `transcribe.py` and `audio_embed.py large` before the notebook.
 `llm_scores_claude.csv` was **not** produced through the API. The Anthropic account had no credits, so the scores were produced by Claude Opus 5.5 in a Claude Code session, using the same rubric prompt as `llm_score.py` and **without seeing any train labels**. Running `python llm_score.py claude` regenerates them through the API; values may differ slightly.
 
 **Hardware:** RTX 4070 Super (12 GB), Python 3.12.
+
+---
+
+<sub>Image: still from *Rush Hour* (1998, New Line Cinema), used here as a reference/commentary. All rights belong to their owners.</sub>
